@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "iCar-03 | Guía, uso y venta",
   description:
     "Sitio comercial y práctico del iCar-03 con carga, seguridad, conectividad, mantenimiento, galería del manual y especificaciones técnicas.",

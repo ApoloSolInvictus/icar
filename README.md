@@ -1,98 +1,61 @@
-# vinext-starter
+# iCar-03
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Sitio comercial y práctico del iCar-03, construido con Next.js para desplegar en
+Vercel. El contenido está basado en el manual `Manual iCar-03 25 Agosto 2024.pdf`
+e incluye guía de carga, uso diario, argumento de venta, especificaciones y una
+galería visual del manual.
 
-## Prerequisites
+## Requisitos
 
 - Node.js `>=22.13.0`
+- npm
 
-## Quick Start
+## Desarrollo local
 
 ```bash
 npm install
 npm run dev
+```
+
+Abre `http://localhost:3000`.
+
+## Build de producción
+
+```bash
 npm run build
+npm run start
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Despliegue en Vercel
 
-## Included Shape
+Este repo ya está preparado para Vercel como una app Next.js estándar.
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+1. Importa `ApoloSolInvictus/icar` en Vercel.
+2. Usa estos valores:
+   - Framework Preset: `Next.js`
+   - Install Command: `npm install`
+   - Build Command: `npm run build`
+   - Output Directory: vacío, Vercel lo detecta automáticamente
+3. No se requieren variables de entorno para la versión actual.
 
-## Workspace Auth Headers
+También puedes desplegar desde CLI:
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```bash
+npm i -g vercel
+vercel
+vercel --prod
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+## Estructura principal
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+- `app/page.tsx`: página principal del iCar-03
+- `app/Gallery.tsx`: galería filtrable con carga progresiva
+- `app/globals.css`: diseño visual estilo mapa y responsive
+- `public/assets/`: imágenes extraídas y optimizadas del manual
+- `public/og.png`: imagen social para enlaces compartidos
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+## Notas
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+El sitio ya no depende de GitHub Pages, Cloudflare Workers, Vinext, D1 ni R2. Las
+funciones necesarias para la experiencia actual se resuelven con Next.js y assets
+estáticos servidos por Vercel.
