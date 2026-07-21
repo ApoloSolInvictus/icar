@@ -3,7 +3,7 @@ import { IcarAssistant } from "./IcarAssistant";
 const models = [
   {
     name: "ICAR 03",
-    image: "/assets/models/icar-03.png",
+    image: "/assets/models/icar-03-real.webp",
     focus: "SUV 100% electrico",
     detail: "Carga, bateria LFP, multimedia, ADAS, 12V y mantenimiento diario.",
   },
@@ -89,7 +89,7 @@ export default function Home() {
             <span>IA activa</span>
             <strong>Texto + voz</strong>
           </div>
-          <img alt="ICAR 03 de muestra" src="/assets/models/icar-03.png" />
+          <img alt="ICAR 03 completo de muestra" src="/assets/models/icar-03-real.webp" />
           <div className="telemetry">
             <span>Modelo</span>
             <strong>ICAR 03</strong>

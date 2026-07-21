@@ -229,15 +229,17 @@ footer span {
   border: 1px solid var(--line);
   border-radius: 8px;
   min-height: 520px;
-  overflow: hidden;
+  overflow: visible;
   padding: 28px;
 }
 
 .hero-vehicle img {
   filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.48));
-  margin: 82px auto 32px;
+  margin: 72px auto 32px;
+  max-height: 360px;
   object-fit: contain;
-  width: 96%;
+  object-position: center center;
+  width: 100%;
 }
 
 .signal-card,
@@ -314,14 +316,15 @@ footer {
 
 .model-card {
   display: grid;
-  grid-template-rows: 210px auto;
+  grid-template-rows: 260px auto;
   overflow: hidden;
 }
 
 .model-card img {
   height: 100%;
   object-fit: contain;
-  padding: 18px;
+  object-position: center center;
+  padding: 12px;
   width: 100%;
 }
 
