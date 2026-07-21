@@ -7,31 +7,31 @@ const siteUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "iCar-03 | Guía, uso y venta",
+  title: "Centro iCar IA | Soporte para ICAR 03, V23 y V27",
   description:
-    "Sitio comercial y práctico del iCar-03 con carga, seguridad, conectividad, mantenimiento, galería del manual y especificaciones técnicas.",
+    "Asistente OpenAI para soporte, mantenimiento, carga, repuestos, accesorios y mejoras de la familia ICAR.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "iCar-03 | Guía, uso y venta",
+    title: "Centro iCar IA",
     description:
-      "Una experiencia visual basada en el manual práctico del iCar-03.",
+      "Chat tecnico con texto, microfono y voz para propietarios ICAR.",
     images: [
       {
         url: "/og.png",
         width: 1731,
         height: 901,
-        alt: "iCar-03 guía, uso y venta",
+        alt: "Centro iCar IA",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "iCar-03 | Guía, uso y venta",
+    title: "Centro iCar IA",
     description:
-      "Una experiencia visual basada en el manual práctico del iCar-03.",
+      "Soporte, mantenimiento, partes y extras para ICAR con chatbot OpenAI.",
     images: ["/og.png"],
   },
 };

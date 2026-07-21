@@ -1,286 +1,175 @@
-import { Gallery } from "./Gallery";
+import { IcarAssistant } from "./IcarAssistant";
 
-const heroImages = [
-  "/assets/web-photos/real-icar-03-front-right.webp",
-  "/assets/web-photos/official-icaur-03-screen.webp",
-  "/assets/web-photos/real-icar-03-jaecoo-interior.webp",
+const models = [
+  {
+    name: "ICAR 03",
+    image: "/assets/models/icar-03.png",
+    focus: "SUV 100% electrico",
+    detail: "Carga, bateria LFP, multimedia, ADAS, 12V y mantenimiento diario.",
+  },
+  {
+    name: "ICAR V23",
+    image: "/assets/models/icar-v23.png",
+    focus: "Aventura electrica",
+    detail: "Soporte por compatibilidad, accesorios, llantas, carga y uso correcto.",
+  },
+  {
+    name: "ICAR V27",
+    image: "/assets/models/icar-v27.png",
+    focus: "Espacio y versatilidad",
+    detail: "Ficha tecnica, partes, alertas, mejoras y consultas por modelo.",
+  },
 ];
 
-const specs = [
-  ["Largo", "4.406 mm"],
-  ["Ancho", "1.910 mm"],
-  ["Alto", "1.715 mm"],
-  ["Distancia entre ejes", "2.715 mm"],
-  ["Plazas", "5"],
-  ["Velocidad máxima", "150 km/h"],
-  ["Potencia máxima", "135 kW en versiones S56A/S56B"],
-  ["Par máximo", "220 Nm en versiones S56A/S56B"],
-  ["Cargador a bordo", "6,6 kW"],
-  ["Neumáticos", "225/60R18, 225/55R19 o 235/60R18 según versión"],
+const focusAreas = [
+  "Bateria y carga",
+  "Bateria 12V",
+  "Llaves y acceso",
+  "Mantenimiento",
+  "Pantalla y multimedia",
+  "Sensores y alertas",
+  "Uso adecuado",
+  "Partes y extras",
 ];
 
-const routeStops = [
+const quickGuides = [
   {
     title: "Carga segura",
-    text: "El adaptador y la pistola entran juntos y salen juntos. Para detener la carga, se oprime el botón del adaptador y se verifica que el iCar deje de cargar.",
+    text: "Conecte adaptador y pistola como una sola pieza, detenga la carga desde el adaptador y espere a que los indicadores dejen de parpadear antes de retirar.",
   },
   {
-    title: "Batería LFP",
-    text: "Litio Ferro Fosfato, orientada a durabilidad y seguridad. El manual recomienda calibrar una vez al mes bajando cerca del 10% y cargando al 100%.",
+    title: "Bateria LFP",
+    text: "Puede trabajar muy bien con cargas altas, pero conviene cuidar temperatura, instalacion electrica y ciclos de calibracion cuando aplique.",
   },
   {
-    title: "Conducción diaria",
-    text: "Modo Custom para una respuesta más suave, regeneración configurable y una conducción menos brusca en ciudad, pendientes y ruta mixta.",
+    title: "Salida de emergencia",
+    text: "Si el sistema se apaga, revise el mecanismo manual de apertura de puertas y no fuerce controles electricos bloqueados.",
   },
   {
-    title: "Cabina conectada",
-    text: "Pantalla central, CarPlay, mapas, GPS, brújula, carga inalámbrica y ajustes rápidos para confort, asistencia y entretenimiento.",
-  },
-  {
-    title: "Seguridad real",
-    text: "Airbags, ABS, ESC, cinturones, apertura manual de emergencia y recomendaciones prácticas para Costa Rica.",
+    title: "Partes y mejoras",
+    text: "Antes de comprar bumpers, aros, maleteros, porta celulares, tiendas o accesorios, confirme modelo, version y compatibilidad por VIN.",
   },
 ];
 
 export default function Home() {
   return (
     <main>
-      <nav className="topbar" aria-label="Navegación principal">
+      <nav className="topbar" aria-label="Navegacion principal">
         <a className="brand" href="#inicio">
-          iCar-03
+          Centro iCar IA
         </a>
         <div>
-          <a href="#uso">Uso</a>
-          <a href="#venta">Venta</a>
-          <a href="#specs">Specs</a>
-          <a href="#galeria">Galería</a>
+          <a href="#modelos">Modelos</a>
+          <a href="#asistente">Chat IA</a>
+          <a href="#guias">Guias</a>
         </div>
       </nav>
 
-      <section className="hero map-surface" id="inicio">
-        <div className="route-line one" />
-        <div className="route-line two" />
-        <div className="pin pin-a">Carga</div>
-        <div className="pin pin-b">LFP</div>
-        <div className="pin pin-c">GPS</div>
-
+      <section className="hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow">Landing Vercel + galería real</p>
-          <h1>iCar-03</h1>
+          <p className="eyebrow">Soporte inteligente para propietarios ICAR</p>
+          <h1>Centro iCar IA</h1>
           <p className="hero-lede">
-            SUV eléctrico compacto con batería LFP, cabina conectada, guía de
-            carga para Costa Rica y fotos reales del vehículo desde el primer
-            pantallazo.
+            Pregunte por mantenimiento, carga, fallas, repuestos, accesorios y
+            mejoras para ICAR 03, V23 y V27. El sitio esta pensado como una
+            mesa de ayuda sencilla, oscura y precisa, no como una pagina de venta.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="#venta">
-              Ver propuesta comercial
+            <a className="primary-action" href="#asistente">
+              Abrir asistente
             </a>
-            <a className="secondary-action" href="#galeria">
-              Explorar imágenes
+            <a className="secondary-action" href="#guias">
+              Ver temas base
             </a>
           </div>
         </div>
 
-        <div className="hero-showcase" aria-label="Auto de muestra iCar-03">
-          <img
-            className="hero-car"
-            alt="iCar-03 real circulando en ciudad"
-            src="/assets/web-photos/real-icar-03-street-front.webp"
-          />
-          <div className="hero-badge">
-            <strong>Auto de muestra</strong>
-            <span>Vista real y material oficial para venta</span>
+        <div className="hero-vehicle" aria-label="Auto de muestra ICAR">
+          <div className="signal-card">
+            <span>IA activa</span>
+            <strong>Texto + voz</strong>
+          </div>
+          <img alt="ICAR 03 de muestra" src="/assets/models/icar-03.png" />
+          <div className="telemetry">
+            <span>Modelo</span>
+            <strong>ICAR 03</strong>
+            <span>Base de consulta</span>
+            <strong>Soporte, manual y Centro ICAR</strong>
           </div>
         </div>
-
-        <div className="hero-board" aria-label="Resumen visual del iCar-03">
-          {heroImages.map((src, index) => (
-            <img
-              alt={`Vista real del iCar-03 ${index + 1}`}
-              key={src}
-              src={src}
-            />
-          ))}
-        </div>
       </section>
 
-      <section className="quick-specs" aria-label="Datos destacados">
-        <div>
-          <strong>4.406 mm</strong>
-          <span>Largo</span>
-        </div>
-        <div>
-          <strong>150 km/h</strong>
-          <span>Velocidad máxima</span>
-        </div>
-        <div>
-          <strong>6,6 kW</strong>
-          <span>Cargador a bordo</span>
-        </div>
-        <div>
-          <strong>8 años</strong>
-          <span>Batería de energía, según garantía del manual</span>
-        </div>
-      </section>
-
-      <section className="route-section" id="uso">
-        <div className="section-kicker">Mapa de funcionamiento</div>
+      <section className="models-section" id="modelos">
         <div className="section-heading">
-          <h2>Del enchufe a la ruta, el iCar se entiende por pasos.</h2>
-          <p>
-            El manual combina recomendaciones oficiales con observaciones reales
-            de usuarios. Aquí queda ordenado como una ruta de operación.
-          </p>
+          <p className="eyebrow">Modelos actuales</p>
+          <h2>Una experiencia para dueños, tecnicos y compradores de partes.</h2>
         </div>
 
-        <div className="route-list">
-          {routeStops.map((stop, index) => (
-            <article key={stop.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{stop.title}</h3>
-              <p>{stop.text}</p>
+        <div className="model-grid">
+          {models.map((model) => (
+            <article key={model.name} className="model-card">
+              <img alt={`${model.name} de referencia`} src={model.image} />
+              <div>
+                <span>{model.focus}</span>
+                <h3>{model.name}</h3>
+                <p>{model.detail}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="split-feature">
-        <div>
-          <div className="section-kicker">Carga del iCar-03</div>
-          <h2>El punto crítico es apagar la carga antes de separar.</h2>
+      <section className="assistant-shell" id="asistente">
+        <div className="assistant-context">
+          <p className="eyebrow">Chatbot OpenAI</p>
+          <h2>Pregunte como hablaria con un asesor tecnico.</h2>
           <p>
-            Para cargadores públicos con pistola distinta, el manual insiste en
-            una regla simple: adaptador y pistola se conectan juntos al puerto,
-            y también se retiran juntos. Al finalizar, el botón correcto es el
-            del adaptador porque envía la señal para apagar la carga.
+            El asistente responde con contexto de soporte ICAR, recomendaciones
+            practicas del manual y una ruta clara: que revisar, que evitar y
+            cuando consultar agencia o taller calificado.
           </p>
-          <ul className="check-list">
-            <li>Verificar que las luces LED dejen de parpadear.</li>
-            <li>Evitar insertar primero el adaptador y luego la pistola.</li>
-            <li>No retirar primero la pistola, para evitar arco eléctrico.</li>
-            <li>Preferir cargas medias o bajas para el cuidado diario.</li>
-          </ul>
-        </div>
-        <div className="feature-images">
-          <img alt="Conexión de carga del iCar-03" src="/assets/pages/manual-001.png" />
-          <img alt="Adaptador de carga del iCar-03" src="/assets/pages/manual-003.png" />
-        </div>
-      </section>
 
-      <section className="sales-section" id="venta">
-        <div className="section-kicker">Argumento de venta</div>
-        <div className="section-heading">
-          <h2>Un eléctrico para vender por confianza, uso real y soporte.</h2>
-          <p>
-            La fortaleza del iCar-03 no es solo que sea eléctrico. Es que el
-            manual aterriza la experiencia: cómo cargar, cómo cuidar la batería,
-            cómo configurar la conducción y qué revisar para vivirlo con menos
-            incertidumbre.
-          </p>
-        </div>
-
-        <div className="sales-grid">
-          <article>
-            <h3>Para ciudad y escapadas</h3>
-            <p>
-              170 mm de distancia mínima al suelo, cinco plazas, maletero
-              plegable y dimensiones compactas para moverse con soltura.
-            </p>
-          </article>
-          <article>
-            <h3>Para quien carga en casa</h3>
-            <p>
-              Cargador a bordo de 6,6 kW, recomendaciones de 10 A a 32 A y
-              énfasis en cargas medias para alargar la vida de la batería.
-            </p>
-          </article>
-          <article>
-            <h3>Para familias</h3>
-            <p>
-              Airbags, cinturones, anclajes y advertencias de seguridad infantil
-              presentadas con imágenes claras en el manual.
-            </p>
-          </article>
-          <article>
-            <h3>Para soporte posventa</h3>
-            <p>
-              Garantía de batería de energía indicada hasta 8 años o 150.000 km,
-              más tablas de mantenimiento y piezas especiales.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="spec-section" id="specs">
-        <div className="section-kicker">Especificaciones</div>
-        <div className="section-heading">
-          <h2>Datos técnicos principales del manual.</h2>
-          <p>
-            Las cifras provienen de la sección 9 del PDF, donde se listan
-            dimensiones, peso, desempeño, motor, batería, ruedas y sistemas.
-          </p>
-        </div>
-
-        <div className="spec-layout">
-          <div className="spec-table">
-            {specs.map(([label, value]) => (
-              <div key={label}>
-                <span>{label}</span>
-                <strong>{value}</strong>
-              </div>
+          <div className="focus-grid" aria-label="Temas que cubre el asistente">
+            {focusAreas.map((item) => (
+              <span key={item}>{item}</span>
             ))}
           </div>
-          <div className="spec-pages">
-            <img alt="Tabla de dimensiones del iCar-03" src="/assets/pages/spec-374.png" />
-            <img alt="Tabla de batería del iCar-03" src="/assets/pages/spec-380.png" />
-          </div>
+        </div>
+
+        <IcarAssistant />
+      </section>
+
+      <section className="guides-section" id="guias">
+        <div className="section-heading">
+          <p className="eyebrow">Base rapida</p>
+          <h2>El contenido queda preparado para ampliar la base de conocimiento.</h2>
+        </div>
+
+        <div className="guide-grid">
+          {quickGuides.map((guide) => (
+            <article key={guide.title}>
+              <h3>{guide.title}</h3>
+              <p>{guide.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="visual-strip" aria-label="Fotos reales del vehículo">
-        {[
-          "/assets/web-photos/real-icar-03-street-front.webp",
-          "/assets/web-photos/real-icar-03-street-rear.webp",
-          "/assets/web-photos/official-icaur-03-front.webp",
-          "/assets/web-photos/official-icaur-03-screen.webp",
-          "/assets/web-photos/official-icaur-03-ambient.webp",
-        ].map((src, index) => (
-          <img alt={`Foto real del iCar-03 ${index + 1}`} key={src} src={src} />
-        ))}
-      </section>
-
-      <section className="source-section" aria-label="Fuentes de fotos web">
+      <section className="source-band" aria-label="Fuentes base">
         <div>
-          <span>Fuentes web añadidas</span>
-          <strong>Wikimedia Commons + iCAUR Malaysia</strong>
+          <span>Fuentes base</span>
+          <strong>Manual iCar-03 + Centro ICAR + documentacion OpenAI</strong>
         </div>
         <p>
-          Se agregaron fotos reales de calle y exhibición, más recursos
-          oficiales del modelo iCAUR 03, para que la landing no dependa solo de
-          capturas del manual.
+          La IA esta lista para funcionar cuando agregue OPENAI_API_KEY en
+          Vercel. Sin clave, el sitio conserva una respuesta demo para validar
+          la interfaz, pero el chat real y la voz quedan desactivados.
         </p>
       </section>
 
-      <section className="visual-strip manual-strip" aria-label="Uso visual del manual">
-        {[
-          "/assets/optimized/page-248-img-01.webp",
-          "/assets/optimized/page-252-img-02.webp",
-          "/assets/optimized/page-074-img-01.webp",
-          "/assets/optimized/page-078-img-01.webp",
-          "/assets/optimized/page-088-img-02.webp",
-        ].map((src, index) => (
-          <img alt={`Uso visual del manual iCar-03 ${index + 1}`} key={src} src={src} />
-        ))}
-      </section>
-
-      <Gallery />
-
       <footer>
-        <strong>iCar-03</strong>
-        <span>
-          Sitio basado en el “Manual iCar-03 25 Agosto 2024.pdf” y sus imágenes.
-        </span>
+        <strong>Centro iCar IA</strong>
+        <span>Soporte, mantenimiento, mejoras, repuestos y extras para la familia ICAR.</span>
       </footer>
     </main>
   );

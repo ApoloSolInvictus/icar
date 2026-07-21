@@ -1,9 +1,9 @@
-# iCar-03
+# Centro iCar IA
 
-Sitio comercial y práctico del iCar-03, construido con Next.js para desplegar en
-Vercel. El contenido está basado en el manual `Manual iCar-03 25 Agosto 2024.pdf`
-e incluye guía de carga, uso diario, argumento de venta, especificaciones y una
-galería visual del manual.
+Sitio de soporte para propietarios de ICAR 03, ICAR V23 e ICAR V27, construido
+con Next.js para Vercel. La experiencia ya no es una landing de venta: ahora es
+un centro de ayuda con chatbot OpenAI, consulta por microfono y respuesta con
+voz masculina.
 
 ## Requisitos
 
@@ -19,7 +19,20 @@ npm run dev
 
 Abre `http://localhost:3000`.
 
-## Build de producción
+Sin `OPENAI_API_KEY`, el chat funciona en modo demo con respuestas locales. La
+transcripcion de voz y la voz generada requieren la clave en el entorno.
+
+## Variables de entorno
+
+En Vercel, agregue estas variables en Project Settings -> Environment Variables:
+
+- `OPENAI_API_KEY`: requerida para chat IA real, microfono y voz.
+- `OPENAI_MODEL`: opcional. Valor por defecto: `gpt-5.6-luna`.
+- `OPENAI_TRANSCRIBE_MODEL`: opcional. Valor por defecto: `gpt-4o-mini-transcribe`.
+- `OPENAI_TTS_MODEL`: opcional. Valor por defecto: `gpt-4o-mini-tts`.
+- `OPENAI_TTS_VOICE`: opcional. Valor por defecto: `onyx`.
+
+## Build de produccion
 
 ```bash
 npm run build
@@ -28,17 +41,17 @@ npm run start
 
 ## Despliegue en Vercel
 
-Este repo ya está preparado para Vercel como una app Next.js estándar.
+Este repo esta preparado para Vercel como una app Next.js estandar.
 
 1. Importa `ApoloSolInvictus/icar` en Vercel.
 2. Usa estos valores:
    - Framework Preset: `Next.js`
    - Install Command: `npm install`
    - Build Command: `npm run build`
-   - Output Directory: vacío, Vercel lo detecta automáticamente
-3. No se requieren variables de entorno para la versión actual.
+   - Output Directory: vacio, Vercel lo detecta automaticamente
+3. Agrega `OPENAI_API_KEY` para activar las respuestas reales y voz.
 
-También puedes desplegar desde CLI:
+Tambien puedes desplegar desde CLI:
 
 ```bash
 npm i -g vercel
@@ -48,19 +61,19 @@ vercel --prod
 
 ## Estructura principal
 
-- `app/page.tsx`: página principal del iCar-03
-- `app/Gallery.tsx`: galería filtrable con carga progresiva
-- `app/globals.css`: diseño visual estilo mapa y responsive
-- `public/assets/`: imágenes extraídas y optimizadas del manual
-- `public/assets/web-photos/`: fotos reales y recursos oficiales del iCar/iCAUR 03
-- `public/og.png`: imagen social para enlaces compartidos
+- `app/page.tsx`: pagina principal del Centro iCar IA.
+- `app/IcarAssistant.tsx`: interfaz de chat, microfono y voz.
+- `app/api/chat/route.ts`: proxy server-side para OpenAI Responses API.
+- `app/api/transcribe/route.ts`: transcripcion de audio a texto.
+- `app/api/speech/route.ts`: respuesta de texto a voz.
+- `app/lib/icarKnowledge.ts`: base inicial de conocimiento para el asistente.
+- `public/assets/models/`: imagenes esenciales de ICAR 03, V23 y V27.
 
-## Notas
+## Fuentes base
 
-El sitio ya no depende de GitHub Pages, Cloudflare Workers, Vinext, D1 ni R2. Las
-funciones necesarias para la experiencia actual se resuelven con Next.js y assets
-estáticos servidos por Vercel.
+El contenido esta inspirado en el manual `Manual iCar-03 25 Agosto 2024.pdf` y
+en la estructura publica de Centro ICAR: soporte por modelo, preguntas frecuentes,
+tienda de repuestos/accesorios y descargas de fichas tecnicas.
 
-La galería pública está curada: combina fotos web reales/oficiales con una
-selección limpia del manual. Los artefactos de extracción del PDF, como máscaras
-negras o recortes vacíos, se excluyen del manifiesto visible.
+Las llamadas a OpenAI se hacen desde rutas API del servidor para no exponer la
+clave en el navegador.
