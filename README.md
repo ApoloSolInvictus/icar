@@ -52,6 +52,7 @@ vercel --prod
 - `app/Gallery.tsx`: galería filtrable con carga progresiva
 - `app/globals.css`: diseño visual estilo mapa y responsive
 - `public/assets/`: imágenes extraídas y optimizadas del manual
+- `public/assets/web-photos/`: fotos reales y recursos oficiales del iCar/iCAUR 03
 - `public/og.png`: imagen social para enlaces compartidos
 
 ## Notas
@@ -59,3 +60,7 @@ vercel --prod
 El sitio ya no depende de GitHub Pages, Cloudflare Workers, Vinext, D1 ni R2. Las
 funciones necesarias para la experiencia actual se resuelven con Next.js y assets
 estáticos servidos por Vercel.
+
+La galería pública está curada: combina fotos web reales/oficiales con una
+selección limpia del manual. Los artefactos de extracción del PDF, como máscaras
+negras o recortes vacíos, se excluyen del manifiesto visible.

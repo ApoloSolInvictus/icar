@@ -1,0 +1,92 @@
+[
+  {
+    "src": "/assets/web-photos/real-icar-03-front-right.webp",
+    "kind": "web",
+    "title": "iCar 03 real, frente lateral",
+    "credit": "Wikimedia Commons",
+    "href": "https://commons.wikimedia.org/wiki/File:2024_iCar_03,_front_right.jpg",
+    "width": 1800,
+    "height": 1285
+  },
+  {
+    "src": "/assets/web-photos/real-icar-03-street-front.webp",
+    "kind": "web",
+    "title": "iCar 03 real en calle",
+    "credit": "Wikimedia Commons",
+    "href": "https://commons.wikimedia.org/wiki/File:ICar_03_001.jpg",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/assets/web-photos/real-icar-03-street-rear.webp",
+    "kind": "web",
+    "title": "iCar 03 real, vista trasera",
+    "credit": "Wikimedia Commons",
+    "href": "https://commons.wikimedia.org/wiki/File:ICar_03_002.jpg",
+    "width": 1800,
+    "height": 1349
+  },
+  {
+    "src": "/assets/web-photos/real-icar-03-auto-guangzhou.webp",
+    "kind": "web",
+    "title": "iCar 03 real en Auto Guangzhou",
+    "credit": "Wikimedia Commons",
+    "href": "https://commons.wikimedia.org/wiki/File:ICAR_03_at_Auto_Guangzhou_2023_20231126.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "src": "/assets/web-photos/real-icar-03-jaecoo-interior.webp",
+    "kind": "web",
+    "title": "Interior real Jaecoo J6 / iCar 03",
+    "credit": "Wikimedia Commons",
+    "href": "https://commons.wikimedia.org/wiki/File:2024_Jaecoo_J6_-_iCar_03_interior.png",
+    "width": 1800,
+    "height": 1080
+  },
+  {
+    "src": "/assets/web-photos/official-icaur-03-front.webp",
+    "kind": "web",
+    "title": "Frente oficial iCAUR 03",
+    "credit": "iCAUR Malaysia",
+    "href": "https://www.icaur.com.my/models/icaur-03",
+    "width": 1386,
+    "height": 675
+  },
+  {
+    "src": "/assets/web-photos/official-icaur-03-black.webp",
+    "kind": "web",
+    "title": "iCAUR 03 Black Phantom",
+    "credit": "iCAUR Malaysia",
+    "href": "https://www.icaur.com.my/models/icaur-03",
+    "width": 1500,
+    "height": 578
+  },
+  {
+    "src": "/assets/web-photos/official-icaur-03-side.webp",
+    "kind": "web",
+    "title": "Vista lateral oficial iCAUR 03",
+    "credit": "iCAUR Malaysia",
+    "href": "https://www.icaur.com.my/models/icaur-03",
+    "width": 1601,
+    "height": 803
+  },
+  {
+    "src": "/assets/web-photos/official-icaur-03-screen.webp",
+    "kind": "web",
+    "title": "Pantalla central oficial iCAUR 03",
+    "credit": "iCAUR Malaysia",
+    "href": "https://www.icaur.com.my/models/icaur-03",
+    "width": 1080,
+    "height": 813
+  },
+  {
+    "src": "/assets/web-photos/official-icaur-03-ambient.webp",
+    "kind": "web",
+    "title": "Ambient light interior iCAUR 03",
+    "credit": "iCAUR Malaysia",
+    "href": "https://www.icaur.com.my/models/icaur-03",
+    "width": 1080,
+    "height": 605
+  }
+]

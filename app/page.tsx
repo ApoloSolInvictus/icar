@@ -1,10 +1,9 @@
 import { Gallery } from "./Gallery";
 
 const heroImages = [
-  "/assets/optimized/page-001-img-01.webp",
-  "/assets/optimized/page-074-img-01.webp",
-  "/assets/optimized/page-080-img-01.webp",
-  "/assets/pages/spec-374.png",
+  "/assets/web-photos/real-icar-03-front-right.webp",
+  "/assets/web-photos/official-icaur-03-screen.webp",
+  "/assets/web-photos/real-icar-03-jaecoo-interior.webp",
 ];
 
 const specs = [
@@ -66,12 +65,12 @@ export default function Home() {
         <div className="pin pin-c">GPS</div>
 
         <div className="hero-copy">
-          <p className="eyebrow">Manual práctico + experiencia de venta</p>
+          <p className="eyebrow">Landing Vercel + galería real</p>
           <h1>iCar-03</h1>
           <p className="hero-lede">
             SUV eléctrico compacto con batería LFP, cabina conectada, guía de
-            carga para Costa Rica y una galería visual completa basada en el
-            manual.
+            carga para Costa Rica y fotos reales del vehículo desde el primer
+            pantallazo.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#venta">
@@ -83,10 +82,22 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="hero-showcase" aria-label="Auto de muestra iCar-03">
+          <img
+            className="hero-car"
+            alt="iCar-03 real circulando en ciudad"
+            src="/assets/web-photos/real-icar-03-street-front.webp"
+          />
+          <div className="hero-badge">
+            <strong>Auto de muestra</strong>
+            <span>Vista real y material oficial para venta</span>
+          </div>
+        </div>
+
         <div className="hero-board" aria-label="Resumen visual del iCar-03">
           {heroImages.map((src, index) => (
             <img
-              alt={`Vista del manual iCar-03 ${index + 1}`}
+              alt={`Vista real del iCar-03 ${index + 1}`}
               key={src}
               src={src}
             />
@@ -227,15 +238,39 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="visual-strip" aria-label="Uso visual del vehículo">
+      <section className="visual-strip" aria-label="Fotos reales del vehículo">
         {[
+          "/assets/web-photos/real-icar-03-street-front.webp",
+          "/assets/web-photos/real-icar-03-street-rear.webp",
+          "/assets/web-photos/official-icaur-03-front.webp",
+          "/assets/web-photos/official-icaur-03-screen.webp",
+          "/assets/web-photos/official-icaur-03-ambient.webp",
+        ].map((src, index) => (
+          <img alt={`Foto real del iCar-03 ${index + 1}`} key={src} src={src} />
+        ))}
+      </section>
+
+      <section className="source-section" aria-label="Fuentes de fotos web">
+        <div>
+          <span>Fuentes web añadidas</span>
+          <strong>Wikimedia Commons + iCAUR Malaysia</strong>
+        </div>
+        <p>
+          Se agregaron fotos reales de calle y exhibición, más recursos
+          oficiales del modelo iCAUR 03, para que la landing no dependa solo de
+          capturas del manual.
+        </p>
+      </section>
+
+      <section className="visual-strip manual-strip" aria-label="Uso visual del manual">
+        {[
+          "/assets/optimized/page-248-img-01.webp",
+          "/assets/optimized/page-252-img-02.webp",
           "/assets/optimized/page-074-img-01.webp",
           "/assets/optimized/page-078-img-01.webp",
           "/assets/optimized/page-088-img-02.webp",
-          "/assets/optimized/page-248-img-01.webp",
-          "/assets/optimized/page-252-img-02.webp",
         ].map((src, index) => (
-          <img alt={`Uso visual del iCar-03 ${index + 1}`} key={src} src={src} />
+          <img alt={`Uso visual del manual iCar-03 ${index + 1}`} key={src} src={src} />
         ))}
       </section>
 
